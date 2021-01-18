@@ -9,14 +9,14 @@ const app = new cdk.App();
 new PipelineStack(app, 'ServerlessTodoApi-PipelineStack', {
     repositoryName: "serverless-todo-api",
     branchName: "main",
-    ownerName: "vikingen13"
+    ownerName: "vdesaintpern"
 });
 
 const domainName = app.node.tryGetContext("domainName");
 
 // Implement Infra Stage for developer environment
 new InfraStage(app, 'ServerlessTodoApi-Dev', {
-    domainName: domainName ? domainName : 'fr-grazzini',
+    domainName: domainName ? domainName : 'fr-desaintpern-vivien-aws',
     callbackUrls: ['http://localhost', 'http://localhost:3000'],
     env: {
         account: process.env.CDK_DEFAULT_ACCOUNT,
